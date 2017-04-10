@@ -86,6 +86,8 @@ public class Tabuleiro extends Peca {
 	}
 
 	public void mover() {
+		posicaoPeca();
+		posicaoVazia();
 		verificaMovimento();
 		if (verificaMovimento() == true) {
 			// Movimento das peças
@@ -99,15 +101,15 @@ public class Tabuleiro extends Peca {
 		}
 	}
 
-	private boolean verificaMovimento() {
-		posicaoPeca();
-		posicaoVazia();
+	public boolean verificaMovimento() {
 		boolean res = false;
-		if(posicaop[0]>posicaov[0]+1||posicaop[0]<posicaov[0]-1){
-			res = false;
-		}else if(posicaop[1]>posicaov[1]+1||posicaop[1]<posicaov[1]-1){
-			res = false;
-		}else{
+		if((posicaop[0]==posicaov[0]-1)&&(posicaop[1]==posicaov[1])){
+			res = true;
+		}else if((posicaop[0]==posicaov[0]+1)&&(posicaop[1]==posicaov[1])){
+			res = true;
+		}else if((posicaop[1]==posicaov[1]-1)&&(posicaop[0]==posicaov[0])){
+			res = true;
+		}else if((posicaop[1]==posicaov[1]+1)&&(posicaop[0]==posicaov[0])){
 			res = true;
 		}
 		
