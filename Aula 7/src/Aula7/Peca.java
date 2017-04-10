@@ -7,7 +7,7 @@ public class Peca {
 		return peca;
 	}
 
-	public void setPeca(int peca) {
-		this.peca = peca;
+	public void setPeca(int i) {
+		this.peca = i;
 	}
 }
