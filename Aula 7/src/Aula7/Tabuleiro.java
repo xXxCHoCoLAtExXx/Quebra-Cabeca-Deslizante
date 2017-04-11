@@ -1,9 +1,11 @@
 package Aula7;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Tabuleiro extends Peca {
-	private int tam = 4;
+	Scanner scan = new Scanner(System.in);
+	private int tam = scan.nextInt();
 
 	private int[][] tabuleiro = new int[tam][tam];
 	// parametro do tabuleiro pronto
