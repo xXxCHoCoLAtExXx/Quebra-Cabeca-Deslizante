@@ -1,13 +1,13 @@
 package Aula7;
 
 public class Peca {
-	protected int peca;
+	protected String peca;
 	
-	public int getPeca() {
+	public String getPeca() {
 		return peca;
 	}
 
-	public void setPeca(int i) {
+	public void setPeca(String i) {
 		this.peca = i;
 	}
 }

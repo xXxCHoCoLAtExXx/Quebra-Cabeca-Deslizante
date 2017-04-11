@@ -21,7 +21,7 @@ public class QuebraCabeca {
 		
 		while (tab.getTabuleiro() != tab.getTabuleiroFeito()) {
 			System.out.println("\nEscolha a peça que deseja mover: ");
-			tab.setPeca(scan.nextInt());
+			tab.setPeca(scan.next());
 			tab.mover();
 			tab.imprime();
 		}
