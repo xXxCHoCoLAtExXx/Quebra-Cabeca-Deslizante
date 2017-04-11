@@ -3,12 +3,7 @@ package Aula7;
 import java.util.Random;
 
 public class Tabuleiro extends Peca {
-	private int tam = 1;
-
-	// Primeiro definimos o tamanho do tabuleiro
-	public Tabuleiro(int tam) {
-		this.tam = tam;
-	}
+	private int tam = 4;
 
 	private int[][] tabuleiro = new int[tam][tam];
 	// parametro do tabuleiro pronto
@@ -18,12 +13,20 @@ public class Tabuleiro extends Peca {
 
 	Random r = new Random();
 
+	// public Tabuleiro(int tam) {
+	// this.tam = tam;
+	// }
+
+	// Primeiro definimos o tamanho do tabuleiro
+	// public void setTam(int tam) {
+	// this.tam = tam;
+	// }
+
 	// Criamos um tabuleiro preenchendo-o em ordem crescente
 	public void criaTabuleiro() {
-		System.out.println(tabuleiro.length);
 		int cont = 1;
-		for (int i = 0; i < tabuleiro.length; i++) {
-			for (int j = 0; j < tabuleiro.length; j++) {
+		for (int i = 0; i < tam; i++) {
+			for (int j = 0; j < tam; j++) {
 				tabuleiro[i][j] = cont;
 				tabuleiroFeito[i][j] = cont;
 				cont++;
@@ -33,7 +36,7 @@ public class Tabuleiro extends Peca {
 		tabuleiro[tam - 1][tam - 1] = 0;
 	}
 
-	// Embaralhamos todas as pecas usandos os indices dos vetores
+// Embaralhamos todas as pecas usandos os indices dos vetores
 	public void embaralha() {
 		// Embaralha as pecas
 		int randomIndex1; // 1 indice do vetor
