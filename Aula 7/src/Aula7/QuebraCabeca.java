@@ -8,14 +8,14 @@ public class QuebraCabeca {
 
 	public static void main(String[] args) {
 		scan = new Scanner(System.in);
-		Tabuleiro tab = new Tabuleiro();
+		int n;
 		System.out.println("QUEBRA CABECA DESLIZANTE\n");
-		System.out.println("Esolha sua dificuldade: ");
-		System.out.print("N linhas: ");
-		tab.setLinha(scan.nextInt());
-		System.out.print("N colunas: ");
-		tab.setColuna(scan.nextInt());
+		System.out.println("Esolha sua dificuldade ");
+		System.out.print("Tamanho do tabuleiro: ");
+		n = scan.nextInt();
+		Tabuleiro tab = new Tabuleiro(n);
 		
+		tab.criaTabuleiro();
 		tab.embaralha();
 		tab.imprime();
 		

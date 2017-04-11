@@ -3,57 +3,47 @@ package Aula7;
 import java.util.Random;
 
 public class Tabuleiro extends Peca {
-	private int[][] tabuleiro = new int[4][4];
+	private int tam = 1;
+
+	// Primeiro definimos o tamanho do tabuleiro
+	public Tabuleiro(int tam) {
+		this.tam = tam;
+	}
+
+	private int[][] tabuleiro = new int[tam][tam];
 	// parametro do tabuleiro pronto
-	private int[][] tabuleiroFeito = new int[4][4];
+	private int[][] tabuleiroFeito = new int[tam][tam];
 	private int[] posicaop = new int[2];// peca
 	private int[] posicaov = new int[2];// vazio
-	private int linha;
-	private int coluna;
+
 	Random r = new Random();
 
-	public int[] posicaoVazia() {
-
-		posicaov[0] = linha-1;
-		posicaov[1] = coluna-1;
-
-		return posicaov;
-	}
-
-	public int[] posicaoPeca() {
-		for (int i = 0; i < linha; i++) {
-			for (int j = 0; j < coluna; j++) {
-				if (tabuleiro[i][j] == peca) {
-					// salva o indice da posição da peça
-					posicaop[0] = i;
-					posicaop[1] = j;
-				}
-			}
-		}
-		return posicaop;
-	}
-
-	public void embaralha() {
-		// Cria tabuleiro em ordem crescente
+	// Criamos um tabuleiro preenchendo-o em ordem crescente
+	public void criaTabuleiro() {
+		System.out.println(tabuleiro.length);
 		int cont = 1;
-		for (int i = 0; i < linha; i++) {
-			for (int j = 0; j < coluna; j++) {
+		for (int i = 0; i < tabuleiro.length; i++) {
+			for (int j = 0; j < tabuleiro.length; j++) {
 				tabuleiro[i][j] = cont;
 				tabuleiroFeito[i][j] = cont;
 				cont++;
 			}
 		}
-		cont = 0;
-		tabuleiro[linha-1][coluna-1] = 0;
+
+		tabuleiro[tam - 1][tam - 1] = 0;
+	}
+
+	// Embaralhamos todas as pecas usandos os indices dos vetores
+	public void embaralha() {
 		// Embaralha as pecas
 		int randomIndex1; // 1 indice do vetor
 		int randomIndex2; // 2 indice do vetor
 		int aux; // variavel auxiliar
 
-		for (int i = 0; i < linha; i++) {
-			for (int j = 0; j < coluna; j++) {
+		for (int i = 0; i < tam; i++) {
+			for (int j = 0; j < tam; j++) {
 				// Define o ultimo como zero
-				if (i == linha-1 && j == coluna-1) {
+				if (i == tam - 1 && j == tam - 1) {
 					break;
 				} //
 					// Randomiza indice 1
@@ -71,13 +61,38 @@ public class Tabuleiro extends Peca {
 		}
 	}
 
+	// Metodo para imprimir o tabuleiro
 	public void imprime() {
 		// Percorre o vetor e imprime cada item
-		for (int i = 0; i < linha; i++) {
-			for (int j = 0; j < coluna; j++) {
+		for (int i = 0; i < tam; i++) {
+			for (int j = 0; j < tam; j++) {
 				System.out.print(tabuleiro[i][j] + "  ");
 			}
 			System.out.println();// Quebra linha
+		}
+	}
+
+	public void posicaoVazia() {
+		for (int i = 0; i < tam; i++) {
+			for (int j = 0; j < tam; j++) {
+				if (tabuleiro[i][j] == 0) {
+					// salva o indice da posição da peça
+					posicaov[0] = i;
+					posicaov[1] = j;
+				}
+			}
+		}
+	}
+
+	public void posicaoPeca() {
+		for (int i = 0; i < tam; i++) {
+			for (int j = 0; j < tam; j++) {
+				if (tabuleiro[i][j] == peca) {
+					// salva o indice da posição da peça
+					posicaop[0] = i;
+					posicaop[1] = j;
+				}
+			}
 		}
 	}
 
@@ -119,22 +134,6 @@ public class Tabuleiro extends Peca {
 
 	public int[][] getTabuleiroFeito() {
 		return tabuleiroFeito;
-	}
-
-	public int getLinha() {
-		return linha;
-	}
-
-	public void setLinha(int linha) {
-		this.linha = linha;
-	}
-
-	public int getColuna() {
-		return coluna;
-	}
-
-	public void setColuna(int coluna) {
-		this.coluna = coluna;
 	}
 
 }
